@@ -4,11 +4,9 @@ import {
   NumberField,
   TextFieldComponent as TextField,
 } from "@refinedev/mui";
-import { useTranslate } from "@refinedev/core";
 import { Typography, Stack } from "@mui/material";
 
-export const ProductShow = () => {
-  const translate = useTranslate();
+export const GameShow = () => {
   const { queryResult } = useShow();
   const { data, isLoading } = queryResult;
 
@@ -30,11 +28,11 @@ export const ProductShow = () => {
         </Typography>
         <NumberField value={record?.id ?? ""} />
         <Typography variant="body1" fontWeight="bold">
-          {translate("products.fields.title")}
+          Name
         </Typography>
         <TextField value={record?.name} />
         <Typography variant="body1" fontWeight="bold">
-          {translate("products.fields.material")}
+          Material
         </Typography>
         <TextField value={record?.material} />
         <Typography variant="body1" fontWeight="bold">

@@ -1,28 +1,46 @@
-import { Create, useAutocomplete } from "@refinedev/mui";
+import { Edit, useAutocomplete } from "@refinedev/mui";
 import { Box, TextField, Autocomplete } from "@mui/material";
 import { useForm } from "@refinedev/react-hook-form";
 import { Controller } from "react-hook-form";
 
-export const ProductCreate = () => {
+export const GameEdit = () => {
   const {
     saveButtonProps,
-    refineCore: { formLoading },
+    refineCore: { queryResult },
     register,
     control,
     formState: { errors },
   } = useForm();
 
+  const productsData = queryResult?.data?.data;
+
   const { autocompleteProps: categoryAutocompleteProps } = useAutocomplete({
     resource: "categories",
+    defaultValue: productsData?.category?.id,
   });
 
   return (
-    <Create isLoading={formLoading} saveButtonProps={saveButtonProps}>
+    <Edit saveButtonProps={saveButtonProps}>
       <Box
         component="form"
         sx={{ display: "flex", flexDirection: "column" }}
         autoComplete="off"
       >
+        <TextField
+          {...register("id", {
+            required: "This field is required",
+            valueAsNumber: true,
+          })}
+          error={!!(errors as any)?.id}
+          helperText={(errors as any)?.id?.message}
+          margin="normal"
+          fullWidth
+          InputLabelProps={{ shrink: true }}
+          type="number"
+          label="Id"
+          name="id"
+          disabled
+        />
         <TextField
           {...register("name", {
             required: "This field is required",
@@ -98,7 +116,7 @@ export const ProductCreate = () => {
               }}
               isOptionEqualToValue={(option, value) =>
                 value === undefined ||
-                option.id.toString() === value?.id?.toString()
+                option?.id?.toString() === value?.id?.toString()
               }
               renderInput={(params) => (
                 <TextField
@@ -115,6 +133,6 @@ export const ProductCreate = () => {
           )}
         />
       </Box>
-    </Create>
+    </Edit>
   );
 };

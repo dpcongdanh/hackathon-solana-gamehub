@@ -113,6 +113,7 @@
     "fields": {
       "id": "Id",
       "title": "Title",
+      "material": "Material",
       "createdAt": "Created At"
     },
     "titles": {
@@ -120,6 +121,25 @@
       "edit": "Edit Product",
       "list": "Products",
       "show": "Show Product"
+    }
+  },
+  "games": {
+    "games": "Games",
+    "fields": {
+      "id": "Id",
+      "title": "Title",
+      "description": "Description",
+      "genre": "Genre",
+      "cover": "Cover",
+      "tags": "Tags",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At"
+    },
+    "titles": {
+      "create": "Create Game",
+      "edit": "Edit Game",
+      "list": "Games",
+      "show": "Show Game"
     }
   },
   "categories": {

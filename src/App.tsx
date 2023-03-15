@@ -26,6 +26,8 @@ import {
   ProductEdit,
   ProductShow,
 } from "pages/products";
+
+import { GameList, GameCreate, GameEdit, GameShow } from "pages/games";
 import {
   CategoryList,
   CategoryCreate,
@@ -64,6 +66,14 @@ function App() {
                   canDelete: true,
                 },
                 {
+                  name: "games",
+                  list: "/games",
+                  create: "/games/create",
+                  edit: "/games/edit/:id",
+                  show: "/games/show/:id",
+                  canDelete: true,
+                },
+                {
                   name: "categories",
                   list: "/categories",
                   create: "/categories/create",
@@ -99,6 +109,12 @@ function App() {
                     <Route path="create" element={<ProductCreate />} />
                     <Route path="edit/:id" element={<ProductEdit />} />
                     <Route path="show/:id" element={<ProductShow />} />
+                  </Route>
+                  <Route path="/games">
+                    <Route index element={<GameList />} />
+                    <Route path="create" element={<GameCreate />} />
+                    <Route path="edit/:id" element={<GameEdit />} />
+                    <Route path="show/:id" element={<GameShow />} />
                   </Route>
                   <Route path="/categories">
                     <Route index element={<CategoryList />} />

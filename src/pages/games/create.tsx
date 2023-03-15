@@ -3,7 +3,7 @@ import { Box, TextField, Autocomplete } from "@mui/material";
 import { useForm } from "@refinedev/react-hook-form";
 import { Controller } from "react-hook-form";
 
-export const ProductCreate = () => {
+export const GameCreate = () => {
   const {
     saveButtonProps,
     refineCore: { formLoading },
